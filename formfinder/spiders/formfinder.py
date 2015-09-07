@@ -3,7 +3,7 @@ import urlparse
 from scrapy.spiders import Spider
 from scrapy.http import FormRequest, Request
 
-from ..items import Form, Leaflet
+from ..items import Form
 
 class HMCTSFormFinderSpider(Spider):
     name = "formfinder"
@@ -24,8 +24,8 @@ class HMCTSFormFinderSpider(Spider):
                 method="POST",
                 callback=self.get_document_pages
             )
-            #for c in 'aeiou'
-            for c in 'a'
+            for c in 'aeiou'
+            #for c in 'a'
         ]
 
     def get_document_pages(self, response):
@@ -67,10 +67,11 @@ class HMCTSFormFinderSpider(Spider):
         }
 
         if '_forms_' in response.url:
-            yield Form(**kwargs)
+            yield Form(type='form', **kwargs)
 
         elif '_leaflets_' in response.url:
             forms_xpath = '//div[@id="Content"]/*/div[@class="formwrap"]/h3/text()'
-            kwargs['associated_form_names'] = [n.strip() for n in
+            form_names = [n.strip() for n in
                 response.xpath(forms_xpath)[1:].extract()]
-            yield Leaflet(**kwargs)
+            yield Form(type='leaflet', associated_form_names=form_names,
+                       **kwargs)

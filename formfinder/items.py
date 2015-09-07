@@ -2,6 +2,7 @@ from scrapy import Item, Field
 
 
 class Form(Item):
+    type = Field()
     url = Field()
     name = Field()
     title = Field()
@@ -11,7 +12,4 @@ class Form(Item):
     download_url = Field()
     download_size = Field()
     download_format = Field()
-
-
-class Leaflet(Form):
     associated_form_names = Field()
