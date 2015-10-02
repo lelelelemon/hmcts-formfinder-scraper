@@ -17,7 +17,7 @@ Run the scraper:
 $ scrapy crawl formfinder
 ```
 
-Forms will be saved to the `./output` directory, and metadata will be saved to `.output.jsonl` in [JSONlines](http://jsonlines.org) format.
+Forms will be saved to the `./output` directory, and metadata will be saved to `./output.jsonl` in [JSONlines](http://jsonlines.org) format.
 
 ## Metadata format
 
