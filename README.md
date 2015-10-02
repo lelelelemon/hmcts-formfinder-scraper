@@ -1,7 +1,7 @@
 HMCTS FormFinder Scraper
 ------------------------
 
-A Scrapy project to download forms and metadata from the current HMCTS FormFinder on justice.gov.uk
+A [Scrapy](http://scrapy.org) project to download forms and metadata from the current [HMCTS FormFinder](http://hmctsformfinder.justice.gov.uk/HMCTS/FormFinder.do) site on justice.gov.uk
 
 ## Usage
 
@@ -17,7 +17,7 @@ Run the scraper:
 $ scrapy crawl formfinder
 ```
 
-Forms will be saved to the `./output` directory, and metadata will be saved to `.output.jsonl` in JSONlines format.
+Forms will be saved to the `./output` directory, and metadata will be saved to `.output.jsonl` in [JSONlines](http://jsonlines.org) format.
 
 ## Metadata format
 
